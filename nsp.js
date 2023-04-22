@@ -58,3 +58,28 @@ function play_pause_video() {
 $(document).ready(function() {
   $("#nspVid").click(play_pause_video);
 });
+
+function getLocation() {
+  // Get the user's IP address.
+  var ip = navigator.ip;
+
+  // Use the IP2Location database to get the user's city and state.
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://www.ip2location.com/ip2city.json?ip=" + ip);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      // The request was successful.
+      var response = JSON.parse(xhr.responseText);
+      var city = response.city;
+      var state = response.regionName;
+
+      // Log the user's city and state.
+      console.log("The user's city is: " + city + ", " + state);
+    } else {
+      // The request was not successful.
+      console.log("Error getting location: " + xhr.status);
+    }
+  };
+  xhr.send();
+}
+
