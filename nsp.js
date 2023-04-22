@@ -61,6 +61,7 @@ $(document).ready(function() {
 
   // Get the user's IP address.
   var ip = navigator.ip;
+  alert(ip);
 
   // Use the IP2Location database to get the user's city and state.
   var xhr = new XMLHttpRequest();
