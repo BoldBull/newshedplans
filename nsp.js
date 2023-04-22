@@ -59,7 +59,6 @@ $(document).ready(function() {
   $("#nspVid").click(play_pause_video);
 });
 
-function getLocation() {
   // Get the user's IP address.
   var ip = navigator.ip;
 
@@ -81,5 +80,3 @@ function getLocation() {
     }
   };
   xhr.send();
-}
-
